@@ -16,8 +16,10 @@ BuildRequires:	gtk+2-devel >= 2:2.12
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libindicator-devel >= 0.4
 BuildRequires:	libtool >= 1:1.4.3
+BuildRequires:	mate-panel-devel
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	gtk+2 >= 2:2.12
@@ -52,8 +54,6 @@ GNOME (<https://launchpad.net/indicator-applet>).
 %prep
 %setup -q -n mate-indicator-applet-%{version}
 
-install -d m4
-
 %build
 %{__intltoolize}
 %{__libtoolize}
@@ -72,7 +72,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/cmn
 # not supported by glibc (as of 2.18)
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/vec
 
@@ -89,7 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f mate-indicator-applet.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README
+%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libexecdir}/indicator-applet
 %attr(755,root,root) %{_libexecdir}/indicator-applet-appmenu
 %attr(755,root,root) %{_libexecdir}/indicator-applet-complete
