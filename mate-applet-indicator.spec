@@ -2,7 +2,7 @@ Summary:	Small applet to display information from various applications consisten
 Summary(pl.UTF-8):	Mały aplet do spójnego wyświetlania w panelu informacji od różnych aplikacji
 Name:		mate-applet-indicator
 Version:	1.8.0
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.8/mate-indicator-applet-%{version}.tar.xz
