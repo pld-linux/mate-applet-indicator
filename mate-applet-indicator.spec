@@ -23,7 +23,7 @@ BuildRequires:	intltool >= 0.35.0
 %{?with_gtk3:BuildRequires:	libindicator-gtk3-devel >= 0.4}
 # for indicators-ng support (when ido 13.10 available)
 #%{?with_gtk3:BuildRequires:	ido-gtk3-devel >= 13.10}
-#%{?with_gtk3:BuildRequires:	libindicator-gtk3-devel >= 12.10}
+#%{?with_gtk3:BuildRequires:	libindicator-gtk3-devel >= 12.10.2}
 BuildRequires:	libtool >= 1:1.4.3
 BuildRequires:	mate-panel-devel
 BuildRequires:	pkgconfig >= 1:0.19
