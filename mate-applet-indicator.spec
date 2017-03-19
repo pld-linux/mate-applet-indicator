@@ -27,7 +27,7 @@ BuildRequires:	xz
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	gtk+3 >= 3.14
 Requires:	hicolor-icon-theme
-Requires:	mate-panel
+Requires:	mate-panel >= 1.17.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/mate-panel
