@@ -1,18 +1,18 @@
 Summary:	Small applet to display information from various applications consistently in the panel
 Summary(pl.UTF-8):	Mały aplet do spójnego wyświetlania w panelu informacji od różnych aplikacji
 Name:		mate-applet-indicator
-Version:	1.18.1
+Version:	1.20.0
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.18/mate-indicator-applet-%{version}.tar.xz
-# Source0-md5:	fc253e4743bea3a785b53e545967e270
+Source0:	http://pub.mate-desktop.org/releases/1.20/mate-indicator-applet-%{version}.tar.xz
+# Source0-md5:	2dcf423052b0acd5fd399aaab121bb3c
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gettext-tools >= 0.10.40
 BuildRequires:	glib2-devel >= 2.0
-BuildRequires:	gtk+3-devel >= 3.14
+BuildRequires:	gtk+3-devel >= 3.22
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libindicator-gtk3-devel >= 0.4
 # for indicators-ng support (when ido 13.10 available)
@@ -25,7 +25,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
 Requires(post,postun):	gtk-update-icon-cache
-Requires:	gtk+3 >= 3.14
+Requires:	gtk+3 >= 3.22
 Requires:	hicolor-icon-theme
 Requires:	mate-panel >= 1.17.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
