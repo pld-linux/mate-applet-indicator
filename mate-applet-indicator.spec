@@ -1,12 +1,12 @@
 Summary:	Small applet to display information from various applications consistently in the panel
 Summary(pl.UTF-8):	Mały aplet do spójnego wyświetlania w panelu informacji od różnych aplikacji
 Name:		mate-applet-indicator
-Version:	1.20.0
+Version:	1.20.1
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.20/mate-indicator-applet-%{version}.tar.xz
-# Source0-md5:	2dcf423052b0acd5fd399aaab121bb3c
+# Source0-md5:	35095f07480a24168479a62df578989f
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
@@ -75,7 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{frp,ku_IQ,jv,pms}
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{es_ES,frp,jv,ku_IQ,nqo,pms,ur_PK}
 
 %find_lang mate-indicator-applet
 
