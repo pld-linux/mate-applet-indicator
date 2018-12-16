@@ -2,7 +2,7 @@ Summary:	Small applet to display information from various applications consisten
 Summary(pl.UTF-8):	Mały aplet do spójnego wyświetlania w panelu informacji od różnych aplikacji
 Name:		mate-applet-indicator
 Version:	1.20.1
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.20/mate-indicator-applet-%{version}.tar.xz
@@ -30,7 +30,9 @@ Requires:	hicolor-icon-theme
 Requires:	mate-panel >= 1.17.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_libexecdir	%{_libdir}/mate-panel
+# use the same libexecdir as mate-panel
+# (better solution: store mate-panel libexecdir in libmatepanelapplet-*.pc and read it here)
+%define		matepanel_libexecdir	%{_libexecdir}/mate-panel
 
 %description
 The indicator applet exposes Ayatana Indicators in the MATE Panel.
@@ -65,6 +67,7 @@ GNOME (<https://launchpad.net/indicator-applet>).
 %{__autoheader}
 %{__automake}
 %configure \
+	--libexecdir=%{matepanel_libexecdir} \
 	--disable-silent-rules
 
 %{__make}
@@ -75,6 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# es_ES,ku_IQ,ur_PK are outdated versions of es,ku,ur; the rest not supported by glibc
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{es_ES,frp,jv,ku_IQ,nqo,pms,ur_PK}
 
 %find_lang mate-indicator-applet
@@ -91,9 +95,9 @@ rm -rf $RPM_BUILD_ROOT
 %files -f mate-indicator-applet.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libexecdir}/mate-indicator-applet
-%attr(755,root,root) %{_libexecdir}/mate-indicator-applet-appmenu
-%attr(755,root,root) %{_libexecdir}/mate-indicator-applet-complete
+%attr(755,root,root) %{matepanel_libexecdir}/mate-indicator-applet
+%attr(755,root,root) %{matepanel_libexecdir}/mate-indicator-applet-appmenu
+%attr(755,root,root) %{matepanel_libexecdir}/mate-indicator-applet-complete
 %{_datadir}/dbus-1/services/org.mate.panel.applet.IndicatorApplet*.service
 %{_datadir}/mate-panel/applets/org.ayatana.panel.IndicatorApplet*.mate-panel-applet
 %{_iconsdir}/hicolor/scalable/apps/mate-indicator-applet.svg
