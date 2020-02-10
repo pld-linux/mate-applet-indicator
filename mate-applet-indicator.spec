@@ -1,19 +1,18 @@
 Summary:	Small applet to display information from various applications consistently in the panel
 Summary(pl.UTF-8):	Mały aplet do spójnego wyświetlania w panelu informacji od różnych aplikacji
 Name:		mate-applet-indicator
-Version:	1.22.1
+Version:	1.24.0
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.22/mate-indicator-applet-%{version}.tar.xz
-# Source0-md5:	42b5815cb454795bfca37ca5220712fd
+Source0:	http://pub.mate-desktop.org/releases/1.24/mate-indicator-applet-%{version}.tar.xz
+# Source0-md5:	7b46f793bfce3ded56adb1208f2024ea
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	gettext-tools >= 0.10.40
+BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	gtk+3-devel >= 3.22
-BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libindicator-gtk3-devel >= 0.4
 # for indicators-ng support (when ido 13.10 available)
 #BuildRequires:	ido-gtk3-devel >= 13.10
@@ -60,7 +59,6 @@ GNOME (<https://launchpad.net/indicator-applet>).
 %setup -q -n mate-indicator-applet-%{version}
 
 %build
-%{__intltoolize}
 %{__libtoolize}
 %{__aclocal} -I m4
 %{__autoconf}
@@ -99,5 +97,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{matepanel_libexecdir}/mate-indicator-applet-appmenu
 %attr(755,root,root) %{matepanel_libexecdir}/mate-indicator-applet-complete
 %{_datadir}/dbus-1/services/org.mate.panel.applet.IndicatorApplet*.service
-%{_datadir}/mate-panel/applets/org.ayatana.panel.IndicatorApplet*.mate-panel-applet
+%{_datadir}/mate-panel/applets/org.mate.applets.Indicator*.mate-panel-applet
 %{_iconsdir}/hicolor/scalable/apps/mate-indicator-applet.svg
