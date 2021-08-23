@@ -2,7 +2,7 @@ Summary:	Small applet to display information from various applications consisten
 Summary(pl.UTF-8):	Mały aplet do spójnego wyświetlania w panelu informacji od różnych aplikacji
 Name:		mate-applet-indicator
 Version:	1.26.0
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		X11/Applications
 Source0:	https://pub.mate-desktop.org/releases/1.26/mate-indicator-applet-%{version}.tar.xz
@@ -10,13 +10,11 @@ Source0:	https://pub.mate-desktop.org/releases/1.26/mate-indicator-applet-%{vers
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
+BuildRequires:	ayatana-ido-devel >= 0.4.0
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	gtk+3-devel >= 3.22
-BuildRequires:	libindicator-gtk3-devel >= 0.4
-# for indicators-ng support (when ido 13.10 available)
-#BuildRequires:	ido-gtk3-devel >= 13.10
-#BuildRequires:	libindicator-gtk3-devel >= 12.10.2
+BuildRequires:	libayatana-indicator-gtk3-devel >= 0.6.0
 BuildRequires:	libtool >= 1:1.4.3
 BuildRequires:	mate-panel-devel >= 1.17.0
 BuildRequires:	pkgconfig >= 1:0.19
@@ -24,8 +22,10 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
 Requires(post,postun):	gtk-update-icon-cache
+Requires:	ayatana-ido >= 0.4.0
 Requires:	gtk+3 >= 3.22
 Requires:	hicolor-icon-theme
+Requires:	libayatana-indicator-gtk3 >= 0.6.0
 Requires:	mate-panel >= 1.17.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -66,7 +66,8 @@ GNOME (<https://launchpad.net/indicator-applet>).
 %{__automake}
 %configure \
 	--libexecdir=%{matepanel_libexecdir} \
-	--disable-silent-rules
+	--disable-silent-rules \
+	--with-ayatana-indicators
 
 %{__make}
 
