@@ -7,7 +7,7 @@ License:	GPL v3
 Group:		X11/Applications
 Source0:	https://pub.mate-desktop.org/releases/1.26/mate-indicator-applet-%{version}.tar.xz
 # Source0-md5:	6db4d42a268fb17ed7587fbb54f60c0d
-URL:		http://mate-desktop.org/
+URL:		https://wiki.mate-desktop.org/mate-desktop/components/mate-indicator-applet/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	ayatana-ido-devel >= 0.4.0
@@ -18,6 +18,7 @@ BuildRequires:	libayatana-indicator-gtk3-devel >= 0.6.0
 BuildRequires:	libtool >= 1:1.4.3
 BuildRequires:	mate-panel-devel >= 1.17.0
 BuildRequires:	pkgconfig >= 1:0.19
+BuildRequires:	rpmbuild(macros) >= 1.596
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
